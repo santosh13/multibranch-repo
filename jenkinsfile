@@ -8,12 +8,6 @@ pipeline {
                 sh "mkdir -p outbound"
             }
         }
-         stage ("2. service install") {
-            steps {
-                sh "yum update -y"
-                sh "yum install -y httpd"
-            }
-        }
         stage ("2. service start") {
             steps {
                 sh "systemctl restart httpd"
@@ -29,13 +23,6 @@ pipeline {
         stage ("4. create file") {
             steps {
                 sh "echo test.txt"
-                sh "date"
-                sh "cal"
-            }
-        }
-        stage ("5. create file") {
-            steps {
-                sh "echo test1.txt"
                 sh "date"
                 sh "cal"
             }
